@@ -1,0 +1,9 @@
+Hardware list
+
+-Raspberry Pi 3
+-3x servos motors
+-plywood/cardboard
+-LCD screen
+-Frame? Turtlebot (+ sensor?)
+-Breadboard + wires
+
