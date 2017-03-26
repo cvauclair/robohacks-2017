@@ -1,4 +1,8 @@
+#!/usr/bin/env python
 # GPIO access
+import add_image
+import facematch
+import take_selfie
 import RPi.GPIO as GPIO
 
 # Get the time and convert it to string
@@ -30,19 +34,9 @@ GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 while True:
     input_state = GPIO.input(18)
     if input_state == False:
-<<<<<<< HEAD
-		print('Taking picture')
-		#filename = "/home/pi/Desktop/pi-detector/faces/" + strftime(("%H-%M-%S"), gmtime()) + ".jpg"
-		filename = strftime(("%H-%M-%S"), gmtime()) + ".jpg"
-		call(["raspistill","-o",filename])
-		#ftp.sendcmd("put" + filename)
-		#time.sleep(0.2)
-=======
-        print('Taking picture')
-	filename = strftime(("%H-%M-%S"), gmtime()) + ".jpg"
-	call(["raspistill","-o",filename])
+        image = take_selfie.main()
+        facematch.main(image)
+
+	
 	#ftp.
         time.sleep(0.2)
->>>>>>> d86c510e2fb486d84f29686ea994608ae5453312
-
-#signal.signal(signal.SIGINT, cleanup)
