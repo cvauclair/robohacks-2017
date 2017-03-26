@@ -1,5 +1,11 @@
 # GPIO access
 import RPi.GPIO as GPIO
+#import facematch
+#import add_collection
+#import add_image
+#import del_faces
+#import take_selfie
+
 
 # Get the time and convert it to string
 import time
@@ -35,6 +41,6 @@ while True:
 		filename = strftime(("%H-%M-%S"), gmtime()) + ".jpg"
 		call(["raspistill","-o",filename])
 		#ftp.sendcmd("put" + filename)
-		#time.sleep(0.2)
+		time.sleep(0.2)
 
 #signal.signal(signal.SIGINT, cleanup)
