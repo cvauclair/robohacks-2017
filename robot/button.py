@@ -23,17 +23,17 @@ GPIO.setmode(GPIO.BCM)
 
 GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-ftp = FTP("192.168.43.224")
-ftp.login("robot","robohacks")
-ftp.cwd("face-request")
+#ftp = FTP("192.168.43.224")
+#ftp.login("robot","robohacks")
+#ftp.cwd("face-request")
 
 while True:
     input_state = GPIO.input(18)
     if input_state == False:
         print('Taking picture')
-	s = strftime(("%H-%M-%S"), gmtime())
-	call(["raspistill","-o",s + ".jpg"])
-	ftp.
+	filename = strftime(("%H-%M-%S"), gmtime()) + ".jpg"
+	call(["raspistill","-o",filename])
+	#ftp.
         time.sleep(0.2)
 
 #signal.signal(signal.SIGINT, cleanup)
